@@ -1,0 +1,12 @@
+<XARCO>
+    <Record>
+        <ID index="0">1</ID>
+        <Name type="string">Alpha</Name>
+        <Active type="boolean">true</Active>
+    </Record>
+    <Record>
+        <ID index="1">2</ID>
+        <Name type="string">Bravo</Name>
+        <Active type="boolean">false</Active>
+    </Record>
+</XARCO>

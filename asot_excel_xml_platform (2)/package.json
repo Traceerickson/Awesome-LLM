@@ -1,0 +1,26 @@
+{
+  "name": "awesome-llm-test",
+  "version": "1.0.0",
+  "description": "A small React component library for LLM tooling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Traceerickson/Awesome-LLM.git"
+  },
+  "keywords": [
+    "llm",
+    "react",
+    "components",
+    "excel",
+    "axios"
+  ],
+  "author": "Trace Erickson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Traceerickson/Awesome-LLM/issues"
+  },
+  "homepage": "https://github.com/Traceerickson/Awesome-LLM#readme"
+}

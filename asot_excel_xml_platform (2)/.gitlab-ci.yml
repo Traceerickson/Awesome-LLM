@@ -1,0 +1,38 @@
+stages:
+  - build
+  - deploy
+
+build_backend:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE/backend:latest ./backend-asot
+    - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE/backend:latest
+  only:
+    - main
+
+build_frontend:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE/frontend:latest ./frontend
+    - echo "$CI_JOB_TOKEN" | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE/frontend:latest
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image:
+    name: alpine/helm:3.8.0
+    entrypoint: [""]
+  script:
+    - helm repo add stable https://charts.helm.sh/stable
+    - helm upgrade --install secure-asot ./helm/asot --namespace asot --create-namespace
+  only:
+    - main
